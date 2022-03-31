@@ -1,6 +1,6 @@
-# React Backoffice
+# React Alami
 
-> LMD Backoffice with React
+> ALAMI Test FE with React
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -46,18 +46,18 @@ The project layout is as follows:
 
 ```bash
 npm install or
-yanr install
+yarn add
 ```
 
 2. Start local server.
 
 ```bash
 npm start or
-yarn yarn start
+yarn start
 ```
 
 3. After the startup is complete, open a browser and visit http://localhost:3000
 
 ## License
 
-© Made with :heart: by [Tirta Wirya Putra](https://github.com/raynormw)
+  xvMade with :heart: by [Tirta Wirya Putra](https://github.com/raynormw)
