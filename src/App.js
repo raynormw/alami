@@ -1,26 +1,14 @@
-import logo from './logo.svg';
-import { Button } from 'antd';
-import './App.less';
+import React from 'react';
+import { Provider } from 'react-redux';
 
-function App() {
+import Store from 'stores/index';
+import Navigation from 'Navigation';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-          <Button type="primary">Button</Button>
-      </header>
-    </div>
+    <Provider store={Store}>
+      <Navigation />
+    </Provider>
   );
 }
 
