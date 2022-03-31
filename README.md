@@ -45,14 +45,16 @@ The project layout is as follows:
 1. Install Dependencies.
 
 ```bash
-npm install or
+npm install
+or
 yarn add
 ```
 
 2. Start local server.
 
 ```bash
-npm start or
+npm start
+or
 yarn start
 ```
 
