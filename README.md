@@ -1,6 +1,6 @@
 # React Alami
 
-> ALAMI Test FE with React
+> ALAMI Test with React
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -60,4 +60,4 @@ yarn start
 
 ## License
 
-  xvMade with :heart: by [Tirta Wirya Putra](https://github.com/raynormw)
+  Made with :heart: by [Tirta Wirya Putra](https://github.com/raynormw)
