@@ -6,10 +6,10 @@ export default class AddProduct extends Component {
     return (
       <main className="outlet-container">
         <Breadcrumb className="breadcrumb">
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Add Product</Breadcrumb.Item>
+          <Breadcrumb.Item>Beranda</Breadcrumb.Item>
+          <Breadcrumb.Item>Tambah Produk</Breadcrumb.Item>
         </Breadcrumb>
-        <div className="content">Add Product</div>
+        <div className="content">Tambah Produk</div>
       </main>
     );
   }

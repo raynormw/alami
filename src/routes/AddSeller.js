@@ -1,16 +1,108 @@
 import React, { Component } from 'react';
-import { Breadcrumb } from 'antd';
+import { connect } from 'react-redux';
+import {
+  Breadcrumb,
+  Input,
+  Button,
+  Alert,
+  Skeleton,
+} from 'antd';
 
-export default class AddSeller extends Component {
+import { addSeller } from 'actions/sellerAction';
+
+class AddSeller extends Component {
+  state = {
+    nama: "",
+    kota: "",
+    isVisible: false,
+    isError: false,
+    errorMessage: "",
+  }
+
+  onChangeName = (e) => {
+    this.setState({ nama: e.target.value });
+  }
+
+  onChangeCity = (e) => {
+    this.setState({ kota: e.target.value });
+  }
+
+  handleClick = () => {
+    if (!this.state.nama || !this.state.kota) {
+      this.setState({
+        isVisible: true,
+        isError: true,
+        errorMessage: "Form ada yang kosong, harap diisi semua!"
+      });
+    } else {
+      const data = {
+        "nama": this.state.nama,
+        "kota": this.state.kota,
+      }
+      this.props.addSeller(data);
+        // .then((res) => this.setState({ isVisible: true, nama: "", kota: "" }))
+        // .then((response) => {
+        //   console.log(response, 'res')
+        // })
+        // .catch((error) => {
+          // console.log(error, 'error save')
+          // this.setState({ isError: true, errorMessage: error.message, isVisible: true });
+      // });
+    }
+  }
+
+  handleClose = () => {
+    this.setState({ isVisible: false, isError: false, errorMessage: "" });
+  }
+
   render() {
+    console.log(this.state, 'state');
+    console.log(this.props, 'props');
     return (
       <main className="outlet-container">
         <Breadcrumb className="breadcrumb">
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Add Seller</Breadcrumb.Item>
+          <Breadcrumb.Item>Beranda</Breadcrumb.Item>
+          <Breadcrumb.Item>Tambah Penjual</Breadcrumb.Item>
         </Breadcrumb>
-        <div className="content">Add Seller</div>
+        {
+          this.props.isLoading
+          ?
+            <div className="content">
+              <Skeleton className="skeleton" active />
+            </div>
+          :
+            <div className="content">
+              <Input placeholder="Isi Nama Anda" onChange={this.onChangeName} />
+              <Input placeholder="Isi Kota Domisili Anda" onChange={this.onChangeCity} />
+              <Button type="primary" onClick={this.handleClick}>Simpan</Button>
+              {
+                this.state.isVisible
+                  ?
+                    <Alert
+                      className="alert"
+                      message={this.state.isError ? "Error" : "Success"}
+                      type={this.state.isError ? "error" : "success"}
+                      description={this.state.isError ? this.state.errorMessage : "Simpan data sukses"}
+                      onClose={this.handleClose}
+                      showIcon
+                      closable
+                    />
+                  :
+                    null
+              }
+            </div>
+        }
       </main>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isLoading: state.seller.isLoading,
+});
+
+const mapDispatchToProps = dispatch => ({
+  addSeller: (data) => dispatch(addSeller(data)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddSeller);
