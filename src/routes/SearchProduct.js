@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { Breadcrumb } from 'antd';
 
 export default class SearchProduct extends Component {
   render() {
     return (
-      <main style={{ padding: '1rem 0', minHeight: '100vh' }}>
-        <h2>Expenses</h2>
+      <main className="outlet-container">
+        <Breadcrumb className="breadcrumb">
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>Search Product</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="content">Search Product</div>
       </main>
     );
   }

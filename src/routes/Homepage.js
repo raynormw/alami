@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Layout, Breadcrumb } from 'antd';
-import { Outlet } from 'react-router-dom';
-
-import BaseHeader from 'layouts/BaseHeader';
-const { Content, Footer } = Layout;
+import { Breadcrumb } from 'antd';
 
 export default class Homepage extends Component {
   render() {
     return (
-      <main>
-        <h2>Welcome</h2>
+      <main className="outlet-container">
+        <Breadcrumb className="breadcrumb">
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="content">Homepage</div>
       </main>
     );
   }
