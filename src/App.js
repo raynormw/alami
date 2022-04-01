@@ -38,19 +38,14 @@ class App extends Component {
                 <Breadcrumb.Item>App</Breadcrumb.Item>
               </Breadcrumb>
               <Outlet />
-
-
-
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-                <Route path="addseller" element={<AddSeller />} />
-                <Route path="addproduct" element={<AddProduct />} />
-                <Route path="listproduct" element={<ListProduct />} />
-                <Route path="searchproduct" element={<SearchProduct />} />
-              <Route path="*" element={<NoMatch />} />
-            </Routes>
-
-
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                  <Route path="addseller" element={<AddSeller />} />
+                  <Route path="addproduct" element={<AddProduct />} />
+                  <Route path="listproduct" element={<ListProduct />} />
+                  <Route path="searchproduct" element={<SearchProduct />} />
+                <Route path="*" element={<NoMatch />} />
+              </Routes>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
           </Layout>
