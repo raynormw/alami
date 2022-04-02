@@ -13,7 +13,7 @@ export default class ListProduct extends Component {
         </Breadcrumb>
         <div className="content">
           <p className="content--title">Daftar Produk</p>
-          <Table className="table--product" dataSource={dataSource} columns={columns} />;
+          <Table className="table--product" dataSource={dataSource} columns={columns} />
         </div>
       </main>
     );

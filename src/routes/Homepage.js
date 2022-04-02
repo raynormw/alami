@@ -8,7 +8,9 @@ export default class Homepage extends Component {
         <Breadcrumb className="breadcrumb">
           <Breadcrumb.Item>Home</Breadcrumb.Item>
         </Breadcrumb>
-        <div className="content">Homepage</div>
+        <div className="content">
+          <p className="content--title">Welcome</p>
+        </div>
       </main>
     );
   }
