@@ -41,11 +41,7 @@ class AddSeller extends Component {
       }
       this.props.addSeller(data);
         // .then((res) => this.setState({ isVisible: true, nama: "", kota: "" }))
-        // .then((response) => {
-        //   console.log(response, 'res')
-        // })
         // .catch((error) => {
-          // console.log(error, 'error save')
           // this.setState({ isError: true, errorMessage: error.message, isVisible: true });
       // });
     }
@@ -56,8 +52,6 @@ class AddSeller extends Component {
   }
 
   render() {
-    console.log(this.state, 'state');
-    console.log(this.props, 'props');
     return (
       <main className="outlet-container">
         <Breadcrumb className="breadcrumb">
