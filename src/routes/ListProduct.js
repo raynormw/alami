@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, Table } from 'antd';
+
+import { dataSource, columns } from 'utils/dummy';
 
 export default class ListProduct extends Component {
   render() {
@@ -9,7 +11,10 @@ export default class ListProduct extends Component {
           <Breadcrumb.Item>Beranda</Breadcrumb.Item>
           <Breadcrumb.Item>Daftar Produk</Breadcrumb.Item>
         </Breadcrumb>
-        <div className="content">Daftar Produk</div>
+        <div className="content">
+          <p className="content--title">Daftar Produk</p>
+          <Table className="table--product" dataSource={dataSource} columns={columns} />;
+        </div>
       </main>
     );
   }
