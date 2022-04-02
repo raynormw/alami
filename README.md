@@ -1,6 +1,6 @@
 # React Alami
 
-> ALAMI Test FE with React
+> ALAMI Test with React
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -45,14 +45,16 @@ The project layout is as follows:
 1. Install Dependencies.
 
 ```bash
-npm install or
+npm install
+or
 yarn add
 ```
 
 2. Start local server.
 
 ```bash
-npm start or
+npm start
+or
 yarn start
 ```
 
@@ -60,4 +62,4 @@ yarn start
 
 ## License
 
-  xvMade with :heart: by [Tirta Wirya Putra](https://github.com/raynormw)
+  Made with :heart: by [Tirta Wirya Putra](https://github.com/raynormw)
