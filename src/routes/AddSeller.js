@@ -66,8 +66,8 @@ class AddSeller extends Component {
             </div>
           :
             <div className="content">
-              <Input placeholder="Isi Nama Anda" onChange={this.onChangeName} />
-              <Input placeholder="Isi Kota Domisili Anda" onChange={this.onChangeCity} />
+              <Input className="add-seller" placeholder="Isi Nama Anda" onChange={this.onChangeName} />
+              <Input className="add-seller" placeholder="Isi Kota Domisili Anda" onChange={this.onChangeCity} />
               <Button type="primary" onClick={this.handleClick}>Simpan</Button>
               {
                 this.state.isVisible
