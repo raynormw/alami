@@ -6,21 +6,32 @@ import { base_api, proxy } from 'services/api';
 export const addSeller = (data) => {
   return dispatch => {
     dispatch({ type: 'ADD_SELLER' });
+
     Axios({
       method: 'post',
       url: proxy + base_api + 'addSeller',
       data
     })
     .then((res) => {
-      console.log(res, 'res');
-      // const data = res.data.data;
-      // dispatch({ type: 'ADD_SELLER_SUCCESS', res });
+      const data = res.data.data;
+      const code = res.data.code;
+      const message = res.data.message;
+
+      if (!data && code === 400) {
+        dispatch({ type: 'ADD_SELLER_ERROR', payload: message });
+      } else {
+        dispatch({ type: 'ADD_SELLER_SUCCESS', payload: data });
+      }
     })
     .catch((error) => {
-      console.log(error, 'error');
-
-      // dispatch({ type: 'ADD_SELLER_ERROR' });
+      dispatch({ type: 'ADD_SELLER_ERROR', payload: error.message });
     });
+  }
+}
+
+export const handleVisible = (data) => {
+  return dispatch => {
+    dispatch({type: 'VISIBLE_CHANGE', payload: data});
   }
 }
 
