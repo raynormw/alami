@@ -14,7 +14,7 @@ export default function productReducer(state = initialState, action) {
       return {...state, isLoading: false, isError: false, isVisible: true, data: action.payload.data}
     case 'ADD_PRODUCT_ERROR':
       return {...state, isLoading: false, isError: true, isVisible: true, errorMessage: action.payload}
-    case 'VISIBLE_CHANGE':
+    case 'VISIBLE_CHANGE_PRODUCT':
       return {...state, isVisible: action.payload.isVisible, isError: action.payload.isError, errorMessage: action.payload.errorMessage,}
     default:
       return state

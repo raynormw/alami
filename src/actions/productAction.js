@@ -30,8 +30,8 @@ export const addProduct = (data) => {
   }
 }
 
-export const handleVisible = (data) => {
+export const handleVisibleProduct = (data) => {
   return dispatch => {
-    dispatch({type: 'VISIBLE_CHANGE', payload: data});
+    dispatch({type: 'VISIBLE_CHANGE_PRODUCT', payload: data});
   }
 }

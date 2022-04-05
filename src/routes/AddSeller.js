@@ -40,6 +40,10 @@ class AddSeller extends Component {
       }
 
       this.props.addSeller(data);
+      this.setState({
+        nama: "",
+        kota: "",
+      });
     }
   }
 

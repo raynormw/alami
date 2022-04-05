@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'antd';
 
-import { addProduct, handleVisible } from 'actions/productAction';
+import { addProduct, handleVisibleProduct } from 'actions/productAction';
 
 class AddProduct extends Component {
 
@@ -21,7 +21,7 @@ class AddProduct extends Component {
       hargaSatuan: values["harga satuan"],
       deskripsi: values.deskripsi,
     }
-    
+
     this.props.addProduct(data);
   }
 
@@ -146,7 +146,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addProduct: (data) => dispatch(addProduct(data)),
-  handleVisible: (data) => dispatch(handleVisible(data)),
+  handleVisibleProduct: (data) => dispatch(handleVisibleProduct(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);
