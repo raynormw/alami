@@ -32,7 +32,7 @@ class AddProduct extends Component {
       errorMessage: "Form ada yang kosong, harap diisi semua!"
     }
 
-    this.props.handleVisible(data);
+    this.props.handleVisibleProduct(data);
   }
 
   handleClose = () => {
@@ -42,7 +42,7 @@ class AddProduct extends Component {
       errorMessage: ""
     }
 
-    this.props.handleVisible(data);
+    this.props.handleVisibleProduct(data);
   }
 
   render() {
