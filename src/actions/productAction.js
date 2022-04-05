@@ -39,13 +39,15 @@ export const getProduct = (query) => {
       url: proxy + base_api + 'listProductBySellerId?seller_id=' + query
     })
     .then((res) => {
-      console.log('res list prod', res);
       const data = res.data.data;
-      // dispatch({ type: 'GET_PRODUCT_SUCCESS', payload: data });
+      const listData = data.map((item, index) => {
+        return {...item, key: index + 1}
+      });
+
+      dispatch({ type: 'GET_PRODUCT_SUCCESS', payload: listData });
     })
     .catch((error) => {
-      console.log('error list prod', error);
-      // dispatch({ type: 'GET_PRODUCT_ERROR', payload: error.message });
+      dispatch({ type: 'GET_PRODUCT_ERROR', payload: error.message });
     });
   }
 }

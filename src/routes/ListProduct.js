@@ -27,7 +27,6 @@ class ListProduct extends Component {
       this.props.handleVisibleProduct(data);
     } else {
       this.props.getProduct(value);
-      console.log(value, 'value');
     }
   }
 
@@ -42,7 +41,6 @@ class ListProduct extends Component {
   }
 
   render() {
-    console.log('props list', this.props);
     return (
       <main className="outlet-container">
         <Breadcrumb className="breadcrumb">
