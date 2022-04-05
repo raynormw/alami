@@ -3,11 +3,11 @@ import { Breadcrumb, Form, Input, Button } from 'antd';
 
 export default class AddProduct extends Component {X
 
-  onFinish = (values: any) => {
+  onFinish = (values) => {
     console.log('Success:', values);
   }
 
-  onFinishFailed = (errorInfo: any) => {
+  onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   }
 

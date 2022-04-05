@@ -1,13 +1,14 @@
 import Axios from 'axios';
 
-import { base_api } from 'services/api';
+import { base_api, proxy } from 'services/api';
 
+// use http://127.0.0.1:3000 instead of localhost to avoid cors.
 export const addSeller = (data) => {
   return dispatch => {
     dispatch({ type: 'ADD_SELLER' });
     Axios({
       method: 'post',
-      url: base_api + 'addSeller',
+      url: proxy + base_api + 'addSeller',
       data
     })
     .then((res) => {
@@ -27,7 +28,7 @@ export const addSeller = (data) => {
 //   return dispatch => {
 //     dispatch({ type: 'ADD_SELLER' });
 //     // POST request using fetch()
-//     fetch('https://dev.dummy-api.alamisharia.co.id/addSeller', {
+//     fetch('https://cors-anywhere.herokuapp.com/https://dev.dummy-api.alamisharia.co.id/addSeller', {
 //         method: 'POST', // *GET, POST, PUT, DELETE, etc.
 //         headers: {
 //         'Content-Type': 'application/json'
