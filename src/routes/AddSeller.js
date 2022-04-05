@@ -4,8 +4,8 @@ import {
   Breadcrumb,
   Input,
   Button,
-  Alert,
   Skeleton,
+  Alert,
 } from 'antd';
 
 import { addSeller, handleVisible } from 'actions/sellerAction';

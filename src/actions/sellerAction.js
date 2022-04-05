@@ -20,6 +20,7 @@ export const addSeller = (data) => {
       if (!data && code === 400) {
         dispatch({ type: 'ADD_SELLER_ERROR', payload: message });
       } else {
+        console.log('data seller', data);
         dispatch({ type: 'ADD_SELLER_SUCCESS', payload: data });
       }
     })
