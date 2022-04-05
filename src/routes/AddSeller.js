@@ -78,7 +78,7 @@ class AddSeller extends Component {
                       className="alert"
                       message={this.props.isError ? "Error" : "Success"}
                       type={this.props.isError ? "error" : "success"}
-                      description={this.props.isError ? this.props.errorMessage : "Simpan data sukses"}
+                      description={this.props.isError ? this.props.errorMessage : "Berhasil Menambah Penjual"}
                       onClose={this.handleClose}
                       showIcon
                       closable
