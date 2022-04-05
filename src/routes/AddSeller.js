@@ -4,8 +4,8 @@ import {
   Breadcrumb,
   Input,
   Button,
-  Alert,
   Skeleton,
+  Alert,
 } from 'antd';
 
 import { addSeller, handleVisible } from 'actions/sellerAction';
@@ -40,6 +40,10 @@ class AddSeller extends Component {
       }
 
       this.props.addSeller(data);
+      this.setState({
+        nama: "",
+        kota: "",
+      });
     }
   }
 
