@@ -14,7 +14,15 @@ import { addProduct, handleVisible } from 'actions/productAction';
 class AddProduct extends Component {
 
   onFinish = (values) => {
-    console.log('Success:', values);
+    const data = {
+      sellerId: values.id,
+      nama: values.nama,
+      satuan: values.satuan,
+      hargaSatuan: values["harga satuan"],
+      deskripsi: values.deskripsi,
+    }
+    
+    this.props.addProduct(data);
   }
 
   onFinishFailed = (errorInfo) => {
@@ -64,7 +72,7 @@ class AddProduct extends Component {
                 <Form.Item
                   label="Id"
                   name="id"
-                  rules={[{ required: true, message: 'Tolong isi Id Anda!' }]}
+                  rules={[{ required: true, message: 'Tolong isi Id Produk!' }]}
                 >
                   <Input />
                 </Form.Item>
@@ -72,7 +80,7 @@ class AddProduct extends Component {
                 <Form.Item
                   label="Nama"
                   name="nama"
-                  rules={[{ required: true, message: 'Tolong isi Nama Anda!' }]}
+                  rules={[{ required: true, message: 'Tolong isi Nama Produk!' }]}
                 >
                   <Input />
                 </Form.Item>
@@ -80,7 +88,7 @@ class AddProduct extends Component {
                 <Form.Item
                   label="Satuan"
                   name="satuan"
-                  rules={[{ required: true, message: 'Tolong isi Satuannya!' }]}
+                  rules={[{ required: true, message: 'Tolong isi Satuan Produk!' }]}
                 >
                   <Input />
                 </Form.Item>
@@ -88,15 +96,15 @@ class AddProduct extends Component {
                 <Form.Item
                   label="Harga Satuan"
                   name="harga satuan"
-                  rules={[{ required: true, message: 'Tolong isi Harga Satuannya!' }]}
+                  rules={[{ required: true, message: 'Tolong isi Harga Satuan Produk!' }]}
                 >
                   <Input />
                 </Form.Item>
 
                 <Form.Item
                   label="Deskripsi"
-                  name="deksripsi"
-                  rules={[{ required: true, message: 'Tolong isi Deskripsinya!' }]}
+                  name="deskripsi"
+                  rules={[{ required: true, message: 'Tolong isi Deskripsi Produk!' }]}
                 >
                   <Input />
                 </Form.Item>
@@ -114,7 +122,7 @@ class AddProduct extends Component {
                       className="alert"
                       message={this.props.isError ? "Error" : "Success"}
                       type={this.props.isError ? "error" : "success"}
-                      description={this.props.isError ? this.props.errorMessage : "Berhasil Menambah Penjual"}
+                      description={this.props.isError ? this.props.errorMessage : "Berhasil Menambah Produk"}
                       onClose={this.handleClose}
                       showIcon
                       closable
