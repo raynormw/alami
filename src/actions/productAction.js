@@ -30,6 +30,26 @@ export const addProduct = (data) => {
   }
 }
 
+export const getProduct = (query) => {
+  return dispatch => {
+    dispatch({ type: 'GET_PRODUCT' });
+
+    Axios({
+      method: 'get',
+      url: proxy + base_api + 'listProductBySellerId?seller_id=' + query
+    })
+    .then((res) => {
+      console.log('res list prod', res);
+      const data = res.data.data;
+      dispatch({ type: 'GET_PRODUCT_SUCCESS', payload: data });
+    })
+    .catch((error) => {
+      console.log('error list prod', error);
+      dispatch({ type: 'GET_PRODUCT_ERROR', payload: error.message });
+    });
+  }
+}
+
 export const handleVisibleProduct = (data) => {
   return dispatch => {
     dispatch({type: 'VISIBLE_CHANGE_PRODUCT', payload: data});

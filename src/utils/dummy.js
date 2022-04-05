@@ -1,32 +1,53 @@
 export const dataSource = [
   {
     key: '1',
-    name: 'Mike',
-    age: 32,
-    address: '10 Downing Street',
+    id: 1,
+    nama: 'Americano',
+    satuan: 'cup',
+    hargaSatuan: 49000,
+    sellerId: 1,
+    deskripsi: 'Regular size',
   },
   {
     key: '2',
-    name: 'John',
-    age: 42,
-    address: '10 Downing Street',
+    id: 6,
+    nama: 'Jeruk',
+    satuan: 'kg',
+    hargaSatuan: 10000,
+    sellerId: 1,
+    deskripsi: 'Jeruk Manis',
   },
 ];
 
 export const columns = [
   {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
+    title: 'Id',
+    dataIndex: 'id',
+    key: 'id',
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: 'Nama',
+    dataIndex: 'nama',
+    key: 'nama',
   },
   {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
+    title: 'Satuan',
+    dataIndex: 'satuan',
+    key: 'satuan',
+  },
+  {
+    title: 'Harga Satuan',
+    dataIndex: 'hargaSatuan',
+    key: 'hargaSatuan',
+  },
+  {
+    title: 'Seller ID',
+    dataIndex: 'sellerId',
+    key: 'sellerId',
+  },
+  {
+    title: 'Deskripsi',
+    dataIndex: 'deskripsi',
+    key: 'deskripsi',
   },
 ];

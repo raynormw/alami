@@ -1,5 +1,6 @@
 const initialState = {
   data: {},
+  listData: [],
   isLoading: false,
   isVisible: false,
   isError: false,
