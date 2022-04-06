@@ -25,11 +25,11 @@ export default function productReducer(state = initialState, action) {
     case 'GET_PRODUCT_SUCCESS':
       return {...state, isLoading: false, isError: false, isVisibleList: false, listData: action.payload}
     case 'GET_PRODUCT_ERROR':
-      return {...state, isLoading: false, isError: true, isVisibleSearch: true, errorMessage: action.payload}
+      return {...state, isLoading: false, isError: true, isVisibleList: true, errorMessage: action.payload}
     case 'SEARCH_PRODUCT_SUCCESS':
       return {...state, isLoading: false, isError: false, isVisibleSearch: false, searchData: action.payload}
     case 'SEARCH_PRODUCT_ERROR':
-      return {...state, isLoading: false, isError: true, isVisibleList: true, errorMessage: action.payload}
+      return {...state, isLoading: false, isError: true, isVisibleSearch: true, errorMessage: action.payload}
     case 'VISIBLE_CHANGE_PRODUCT':
       return {
         ...state,

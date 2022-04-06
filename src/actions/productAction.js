@@ -20,7 +20,6 @@ export const addProduct = (data) => {
       if (!data && code === 400) {
         dispatch({ type: 'ADD_PRODUCT_ERROR', payload: message });
       } else {
-        console.log('data product', data);
         dispatch({ type: 'ADD_PRODUCT_SUCCESS', payload: data });
       }
     })
@@ -48,6 +47,34 @@ export const getProduct = (query) => {
     })
     .catch((error) => {
       dispatch({ type: 'GET_PRODUCT_ERROR', payload: error.message });
+    });
+  }
+}
+
+export const searchProduct = (keyword) => {
+  return dispatch => {
+    dispatch({ type: 'SEARCH_PRODUCT' });
+
+    Axios({
+      method: 'get',
+      url: proxy + base_api + 'searchProductByKeyword?keyword=' + keyword
+    })
+    .then((res) => {
+      const data = res.data.data;
+      const code = res.data.code;
+      const message = res.data.message;
+      const searchData = data.map((item, index) => {
+        return {...item, key: index + 1}
+      });
+
+      if (!data && code === 400) {
+        dispatch({ type: 'SEARCH_PRODUCT_ERROR', payload: message });
+      } else {
+        dispatch({ type: 'SEARCH_PRODUCT_SUCCESS', payload: searchData });
+      }
+    })
+    .catch((error) => {
+      dispatch({ type: 'SEARCH_PRODUCT_ERROR', payload: error.message });
     });
   }
 }

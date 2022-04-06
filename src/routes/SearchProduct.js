@@ -4,16 +4,20 @@ import {
   Breadcrumb,
   Table,
   Input,
+  Alert,
+  Skeleton,
+  Empty,
 } from 'antd';
 
 import { searchProduct, handleVisibleProduct } from 'actions/productAction';
-import { dataSource, columns } from 'utils/dummy';
+import { columns } from 'utils/dummy';
 
 const { Search } = Input;
 
 class SearchProduct extends Component {
 
   handleSearch = (value) => {
+    console.log('value', value);
     if (!value) {
       const data = {
         isVisible: false,
@@ -41,7 +45,6 @@ class SearchProduct extends Component {
     this.props.handleVisibleProduct(data);
   }
 
-
   render() {
     return (
       <main className="outlet-container">
@@ -53,13 +56,44 @@ class SearchProduct extends Component {
           <p className="content--title">Cari Produk</p>
           <Search
             className="search-product"
-            placeholder="input search text"
+            placeholder="input keyword text"
             allowClear
             enterButton="Search"
             size="large"
             onSearch={this.handleSearch}
           />
-          <Table className="table--product" dataSource={dataSource} columns={columns} />
+          {
+            this.props.isLoading
+              ?
+                <div className="content">
+                  <Skeleton className="skeleton" active />
+                </div>
+              :
+            !this.props.isLoading && this.props.isError
+              ?
+                <Empty />
+              :
+            !this.props.isLoading && !this.props.isError && this.props.searchData.length > 0
+              ?
+                <Table className="table--product" dataSource={this.props.searchData} columns={columns} />
+              :
+                null
+          }
+          {
+            this.props.isVisibleSearch
+              ?
+                <Alert
+                  className="alert"
+                  message="Error"
+                  type="error"
+                  description={this.props.errorMessage}
+                  onClose={this.handleClose}
+                  showIcon
+                  closable
+                />
+              :
+                null
+          }
         </div>
       </main>
     );
@@ -67,7 +101,7 @@ class SearchProduct extends Component {
 }
 
 const mapStateToProps = state => ({
-  listData: state.product.listData,
+  searchData: state.product.searchData,
   isLoading: state.product.isLoading,
   isVisibleSearch: state.product.isVisibleSearch,
   isError: state.product.isError,
