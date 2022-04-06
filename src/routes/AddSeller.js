@@ -107,6 +107,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addSeller: (data) => dispatch(addSeller(data)),
   handleVisible: (data) => dispatch(handleVisible(data)),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddSeller);
