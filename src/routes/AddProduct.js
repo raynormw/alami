@@ -28,6 +28,7 @@ class AddProduct extends Component {
   onFinishFailed = (errorInfo) => {
     const data = {
       isVisible: true,
+      isVisibleList: false,
       isError: true,
       errorMessage: "Form ada yang kosong, harap diisi semua!"
     }
@@ -38,6 +39,7 @@ class AddProduct extends Component {
   handleClose = () => {
     const data = {
       isVisible: false,
+      isVisibleList: false,
       isError: false,
       errorMessage: ""
     }

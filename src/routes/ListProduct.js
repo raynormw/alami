@@ -19,7 +19,8 @@ class ListProduct extends Component {
   handleSearch = (value) => {
     if (!value) {
       const data = {
-        isVisible: true,
+        isVisibleList: true,
+        isVisible: false,
         isError: true,
         errorMessage: "Id masih kosong!"
       }
@@ -32,6 +33,7 @@ class ListProduct extends Component {
 
   handleClose = () => {
     const data = {
+      isVisibleList: false,
       isVisible: false,
       isError: false,
       errorMessage: ""
@@ -75,7 +77,7 @@ class ListProduct extends Component {
                 null
           }
           {
-            this.props.isVisible
+            this.props.isVisibleList
               ?
                 <Alert
                   className="alert"
@@ -98,7 +100,7 @@ class ListProduct extends Component {
 const mapStateToProps = state => ({
   listData: state.product.listData,
   isLoading: state.product.isLoading,
-  isVisible: state.product.isVisible,
+  isVisibleList: state.product.isVisibleList,
   isError: state.product.isError,
   errorMessage: state.product.errorMessage,
 });
