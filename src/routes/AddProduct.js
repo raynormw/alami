@@ -29,6 +29,7 @@ class AddProduct extends Component {
     const data = {
       isVisible: true,
       isVisibleList: false,
+      isVisibleSearch: false,
       isError: true,
       errorMessage: "Form ada yang kosong, harap diisi semua!"
     }
@@ -40,6 +41,7 @@ class AddProduct extends Component {
     const data = {
       isVisible: false,
       isVisibleList: false,
+      isVisibleSearch: false,
       isError: false,
       errorMessage: ""
     }
@@ -149,6 +151,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addProduct: (data) => dispatch(addProduct(data)),
   handleVisibleProduct: (data) => dispatch(handleVisibleProduct(data)),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddProduct);

@@ -6,7 +6,7 @@ export default class Homepage extends Component {
     return (
       <main className="outlet-container">
         <Breadcrumb className="breadcrumb">
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>Beranda</Breadcrumb.Item>
         </Breadcrumb>
         <div className="content">
           <p className="content--title">Welcome</p>

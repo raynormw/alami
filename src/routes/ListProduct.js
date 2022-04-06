@@ -19,8 +19,9 @@ class ListProduct extends Component {
   handleSearch = (value) => {
     if (!value) {
       const data = {
-        isVisibleList: true,
         isVisible: false,
+        isVisibleList: true,
+        isVisibleSearch: false,
         isError: true,
         errorMessage: "Id masih kosong!"
       }
@@ -33,8 +34,9 @@ class ListProduct extends Component {
 
   handleClose = () => {
     const data = {
-      isVisibleList: false,
       isVisible: false,
+      isVisibleList: false,
+      isVisibleSearch: false,
       isError: false,
       errorMessage: ""
     }
@@ -108,6 +110,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   getProduct: (query) => dispatch(getProduct(query)),
   handleVisibleProduct: (data) => dispatch(handleVisibleProduct(data)),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListProduct);
