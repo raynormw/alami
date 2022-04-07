@@ -44,7 +44,13 @@ export default class BaseHeader extends Component {
             <Link to="listproduct">Daftar Produk</Link>
           </Menu.Item>
           <Menu.Item key="5">
+            <Link to="listseller">Daftar Seller</Link>
+          </Menu.Item>
+          <Menu.Item key="6">
             <Link to="searchproduct">Cari Produk</Link>
+          </Menu.Item>
+          <Menu.Item key="7">
+            <Link to="searchseller">Cari Seller</Link>
           </Menu.Item>
         </Menu>
       </Header>

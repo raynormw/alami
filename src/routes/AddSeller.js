@@ -14,14 +14,12 @@ class AddSeller extends Component {
   state = {
     nama: "",
     kota: "",
+    jenis: "",
+    tahunBerdiri: "",
   }
 
-  onChangeName = (e) => {
-    this.setState({ nama: e.target.value });
-  }
-
-  onChangeCity = (e) => {
-    this.setState({ kota: e.target.value });
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   handleClick = () => {
@@ -37,12 +35,16 @@ class AddSeller extends Component {
       const data = {
         "nama": this.state.nama,
         "kota": this.state.kota,
+        "jenis": this.state.jenis,
+        "tahunBerdiri": this.state.tahunBerdiri,
       }
 
       this.props.addSeller(data);
       this.setState({
         nama: "",
         kota: "",
+        "jenis": "",
+        "tahunBerdiri": "",
       });
     }
   }
@@ -58,6 +60,7 @@ class AddSeller extends Component {
   }
 
   render() {
+    console.log(this.state, 'state');
     return (
       <main className="outlet-container">
         <Breadcrumb className="breadcrumb">
@@ -72,8 +75,10 @@ class AddSeller extends Component {
             </div>
           :
             <div className="content">
-              <Input className="add-seller" placeholder="Isi Nama Anda" onChange={this.onChangeName} />
-              <Input className="add-seller" placeholder="Isi Kota Domisili Anda" onChange={this.onChangeCity} />
+              <Input name="nama" className="add-seller" placeholder="Isi Nama Anda" onChange={this.onChange} />
+              <Input name="kota"className="add-seller" placeholder="Isi Kota Domisili Anda" onChange={this.onChange} />
+              <Input name="jenis"className="add-seller" placeholder="Isi Jenis Seller Anda" onChange={this.onChange} />
+              <Input name="tahunBerdiri"className="add-seller" placeholder="Isi Tahun berdiri seller" onChange={this.onChange} />
               <Button type="primary" onClick={this.handleClick}>Simpan</Button>
               {
                 this.props.isVisible

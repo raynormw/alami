@@ -9,12 +9,12 @@ import {
   Empty,
 } from 'antd';
 
-import { searchProduct, handleVisibleProduct } from 'actions/productAction';
-import { columns } from 'utils/dummy';
+import { searchSeller, handleVisible } from 'actions/sellerAction';
+import { sellerColumns } from 'utils/dummy';
 
 const { Search } = Input;
 
-class SearchProduct extends Component {
+class SearchSeller extends Component {
 
   handleSearch = (value) => {
     if (!value) {
@@ -23,12 +23,12 @@ class SearchProduct extends Component {
         isVisibleList: false,
         isVisibleSearch: true,
         isError: true,
-        errorMessage: "Keyword masih kosong!"
+        errorMessage: "Id masih kosong!"
       }
 
-      this.props.handleVisibleProduct(data);
+      this.props.handleVisible(data);
     } else {
-      this.props.searchProduct(value);
+      this.props.searchSeller(value);
     }
   }
 
@@ -41,23 +41,24 @@ class SearchProduct extends Component {
       errorMessage: ""
     }
 
-    this.props.handleVisibleProduct(data);
+    this.props.handleVisible(data);
   }
 
   render() {
+    console.log(this.props, 'props prod');
     return (
       <main className="outlet-container">
         <Breadcrumb className="breadcrumb">
           <Breadcrumb.Item>Beranda</Breadcrumb.Item>
-          <Breadcrumb.Item>Cari Produk</Breadcrumb.Item>
+          <Breadcrumb.Item>Daftar Seller</Breadcrumb.Item>
         </Breadcrumb>
         <div className="content">
-          <p className="content--title">Cari Produk</p>
+          <p className="content--title">Daftar Seller</p>
           <Search
-            className="search-product"
-            placeholder="input keyword text"
+            className="filter-product"
+            placeholder="Filter berdasarkan id"
             allowClear
-            enterButton="Search"
+            enterButton="Filter"
             size="large"
             onSearch={this.handleSearch}
           />
@@ -72,9 +73,11 @@ class SearchProduct extends Component {
               ?
                 <Empty />
               :
-            !this.props.isLoading && !this.props.isError && this.props.searchData.length > 0
+            !this.props.isLoading
+            && !this.props.isError
+            && this.props.searchData.length > 0
               ?
-                <Table className="table--product" dataSource={this.props.searchData} columns={columns} />
+                <Table className="table--product" dataSource={this.props.searchData} columns={sellerColumns} />
               :
                 null
           }
@@ -100,16 +103,16 @@ class SearchProduct extends Component {
 }
 
 const mapStateToProps = state => ({
-  searchData: state.product.searchData,
-  isLoading: state.product.isLoading,
-  isVisibleSearch: state.product.isVisibleSearch,
-  isError: state.product.isError,
-  errorMessage: state.product.errorMessage,
+  searchData: state.seller.searchData,
+  isLoading: state.seller.isLoading,
+  isVisibleSearch: state.seller.isVisibleSearch,
+  isError: state.seller.isError,
+  errorMessage: state.seller.errorMessage,
 });
 
 const mapDispatchToProps = dispatch => ({
-  searchProduct: (keyword) => dispatch(searchProduct(keyword)),
-  handleVisibleProduct: (data) => dispatch(handleVisibleProduct(data)),
+  searchSeller: (query) => dispatch(searchSeller(query)),
+  handleVisible: (data) => dispatch(handleVisible(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchSeller);

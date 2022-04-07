@@ -8,12 +8,13 @@ import Homepage from 'routes/Homepage';
 import AddSeller from 'routes/AddSeller';
 import AddProduct from 'routes/AddProduct';
 import ListProduct from 'routes/ListProduct';
+import ListSeller from 'routes/ListSeller';
 import SearchProduct from 'routes/SearchProduct';
+import SearchSeller from 'routes/SearchSeller';
 import NoMatch from 'routes/NoMatch';
 import Store from 'stores/index';
 import BaseHeader from 'layouts/BaseHeader';
 const { Content, Footer } = Layout;
-
 
 class App extends Component {
   render() {
@@ -29,7 +30,9 @@ class App extends Component {
                   <Route path="addseller" element={<AddSeller />} />
                   <Route path="addproduct" element={<AddProduct />} />
                   <Route path="listproduct" element={<ListProduct />} />
+                  <Route path="listseller" element={<ListSeller />} />
                   <Route path="searchproduct" element={<SearchProduct />} />
+                  <Route path="searchseller" element={<SearchSeller />} />
                 <Route path="*" element={<NoMatch />} />
               </Routes>
             </Content>

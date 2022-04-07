@@ -51,3 +51,31 @@ export const columns = [
     key: 'deskripsi',
   },
 ];
+
+export const sellerColumns = [
+  {
+    title: 'Id',
+    dataIndex: 'id',
+    key: 'id',
+  },
+  {
+    title: 'Nama',
+    dataIndex: 'nama',
+    key: 'nama',
+  },
+  {
+    title: 'Jenis',
+    dataIndex: 'jenis',
+    key: 'jenis',
+  },
+  {
+    title: 'Kota',
+    dataIndex: 'kota',
+    key: 'kota',
+  },
+  {
+    title: 'Tahun Berdiri',
+    dataIndex: 'tahunBerdiri',
+    key: 'tahunBerdiri',
+  },
+];
